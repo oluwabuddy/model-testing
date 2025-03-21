@@ -1,0 +1,35 @@
+env/
+__pycache__/
+*.db
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Cypress
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+cypress/.cache/
+cypress/reports/
+cypress/results/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Logs & Temp Files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# OS-specific files
+*.swp
+*.swo
