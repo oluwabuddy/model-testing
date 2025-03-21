@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # model-testing
 =======
+=======
+>>>>>>> fb16ab6a4521791cc4f5fd2544181657939b26c3
 # About
 This repo contains a typical app that allows creating an entity that takes time to process. The /model endpoint creates the model in the backend. However, the corresponding saved entity can only transition to the state "SUCCESS" after 5 minutes. Consumers of its api, then have to poll the get endpoint till the 5 minutes is elapsed.
 
@@ -37,5 +40,9 @@ The frontend is then available at http://127.0.0.1:8001/
 # Docker
 To build: ` docker-compose -f docker-compose.local.yml build`
 
+<<<<<<< HEAD
 To run: `docker-compose -f docker-compose.local.yml up`
 >>>>>>> fb16ab6 (Initial commit - API and Cypresss tests)
+=======
+To run: `docker-compose -f docker-compose.local.yml up`
+>>>>>>> fb16ab6a4521791cc4f5fd2544181657939b26c3
