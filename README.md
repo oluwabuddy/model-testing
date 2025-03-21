@@ -1,44 +1,75 @@
+# Model Testing
 
-# model-testing
-# About
-This repo contains a typical app that allows creating an entity that takes time to process. The /model endpoint creates the model in the backend. However, the corresponding saved entity can only transition to the state "SUCCESS" after 5 minutes. Consumers of its api, then have to poll the get endpoint till the 5 minutes is elapsed.
+This repository contains automated UI, API tests for the Model Training Workflow using Cypress with the Page Object Model (POM) and Pytest for the api test.
 
-The application frontend consists of two pages; model and result pages. The model page allows the user set the name of the model that will trained in the backend. The training takes about 5 minutes to complete. While the model is in the training phase, the status will be `PROCESSING`. Once the training is done, the status will be `SUCCESS`.
+## 📌 Prerequisites
 
-On the result page, if the model training status is `PROCESSING`, only the status will be shown. If it is `SUCCESS`, a graph will appear.
+- Node.js (Download: https://nodejs.org/)
+- Git
+- Cypress (`npm install cypress --save-dev`)
 
-# Local run
+## 🚀 How to Run Locally
 
-## backend
-0. [optional] install (and activate) a python virtual enviornment
-1. Install the requirements via the command: `pip install -r requirements.txt`
-2. you are good to go, to run,
-```
-fastapi dev api/main.py
-```
-The backend api is then available at http://127.0.0.1:8000/
-the corresponding swagger docs: http://127.0.0.1:8000/docs
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/cypress-model-testing.git
+   cd cypress-model-testing
+   
+2. Navigate to the project directory
+   ```sh
+   cd model-testing
+3. Install dependencies
+   For UI Tests (Cypress):
+   ```sh
+   npm install
+   
+4. For API Tests:
+   ```sh
+   pip install -r requirements.txt
+
+## Running the Application
+   
+- Start the application using Docker:
+   ```sh
+   docker-compose -f docker-compose.local.yml up
+   
+ The frontend will be available at:
+ http://127.0.0.1:8001/
 
 
-## frontend
-!! make sure the backend is running at first
+## Running Tests
 
-0. [optional] install (and activate) a python virtual enviornment
-1. Install the requirements via the command: `pip install -r requirements.txt`
-2. you are good to go, to run,
-```
-streamlit run frontend/Model.py --server.port 8001
-```
+- Run UI Tests (Cypress)
+  To run all Cypress tests in headless mode:
+   ```sh
+  npx cypress run
 
-The frontend is then available at http://127.0.0.1:8001/
+ - To open Cypress Test Runner GUI
+   ```sh
+   npx cypress open
+
+ - Run API Tests (test_api.py)
+   Execute the API tests using pytest:
+    ```sh
+    cd api
+    pytest test_api.py
+    
+## Project Structure
+
+```bash
+📦 cypress-model-testing
+│── 📂 cypress
+│   ├── 📂 e2e               # Cypress UI test cases
+│   ├── 📂 pageObjects       # Page Object Model files
+│   ├── 📂 fixtures          # Test data
+│   ├── 📂 support           # Cypress support files
+│── 📂 tests
+│   ├── test_api.py          # API test cases using pytest
+│── 📜 docker-compose.local.yml
+│── 📜 cypress.config.js
+│── 📜 package.json
+│── 📜 requirements.txt
+│── 📜 README.md
 
 
-# Docker
-To build: ` docker-compose -f docker-compose.local.yml build`
 
-<<<<<<< HEAD
-To run: `docker-compose -f docker-compose.local.yml up`
->>>>>>> fb16ab6 (Initial commit - API and Cypresss tests)
-=======
-To run: `docker-compose -f docker-compose.local.yml up`
->>>>>>> fb16ab6a4521791cc4f5fd2544181657939b26c3
